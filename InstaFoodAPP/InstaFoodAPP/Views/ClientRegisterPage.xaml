@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InstaFoodAPP.Views.ClientRegisterPage"
+             BackgroundImageSource="bg.jpg"
+             >
+    
+    <ContentPage.Content>
+
+
+
+        <StackLayout Padding="10,-30,10,0" VerticalOptions="Center">
+
+            <FlexLayout Padding="105,10,0,10">
+
+                <Image Source="client.png" VerticalOptions="Center" IsVisible="true" HeightRequest="170" WidthRequest="170"/>
+
+            </FlexLayout>
+            <Entry x:Name="TxtName" HorizontalTextAlignment="Start" Placeholder="Name" PlaceholderColor="White" FontSize="Large" TextColor="White" Keyboard="Text"/>
+            <Entry x:Name="TxtLastName" HorizontalTextAlignment="Start" Placeholder="LastName" PlaceholderColor="White" FontSize="Large" TextColor="White" Keyboard="Text"/>
+            <Entry x:Name="TxtPhoneNumber" HorizontalTextAlignment="Start" Placeholder="Phone" Keyboard="Telephone"  PlaceholderColor="White" FontSize="Large" TextColor="White"/>
+            <Entry x:Name="TxtEmail" HorizontalTextAlignment="Start" Placeholder="Email" PlaceholderColor="White" TextTransform="Lowercase" FontSize="Large" TextColor="White" Keyboard="Email"/>
+            <FlexLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="20">
+
+                    <Entry x:Name="TxtPassword" WidthRequest="310" HorizontalTextAlignment="Start" Placeholder="Password" PlaceholderColor="White" IsPassword="True" FontSize="Large" TextColor="White"/>
+                    <Switch x:Name="SwSeePassword" IsToggled="False" Toggled="CmdSeePassword" />
+
+                </StackLayout>
+
+
+            </FlexLayout>
+
+
+            <FlexLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="0,10,0,0" Spacing="20" HorizontalOptions="End">
+
+                    <Button x:Name="BtnAdd" Text="Add" BackgroundColor="#16F516" 
+                    WidthRequest="175" Padding="10,0,10,0" FontAttributes="Bold" FontSize="Medium" Clicked="BtnAdd_Clicked"/>
+                    <!--Clicked="BtnAdd_Clicked"-->
+
+                    <Button x:Name="btnCancel" Text="Cancel" BackgroundColor="#EB1F62" 
+                    WidthRequest="175" Padding="10,0,10,0"
+                        Clicked="CmdVolver" FontAttributes="Bold" FontSize="Medium"/>
+
+                </StackLayout>
+
+            </FlexLayout>
+
+
+
+        </StackLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>
