@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InstaFoodAPP.Views.RestRegisterPage">
+    <ContentPage.Content>
+        
+        <ScrollView>
+        <StackLayout Padding="0,0,0,0" HorizontalOptions="CenterAndExpand">
+            <AbsoluteLayout FlowDirection="LeftToRight" VerticalOptions="Center" IsVisible="True" IsClippedToBounds="True" HorizontalOptions="CenterAndExpand">
+                <Image Source="Restaurant"/>
+            </AbsoluteLayout>
+
+            <Entry x:Name="TxtName" Placeholder="Name" FontSize="Large"/>
+            <Entry x:Name="TxtProv" Placeholder="Province" FontSize="Large"/>
+            <Entry x:Name="TxtTown" Placeholder="City" FontSize="Large"/>
+            <Entry x:Name="TxtDistrict" Placeholder="District" FontSize="Large"/>
+            <Entry x:Name="TxtAdress" Placeholder="Address" FontSize="Large"/>
+            <Entry x:Name="TxtSchedule" Placeholder="Schedule" FontSize="Large"/>
+            <Entry x:Name="TxtTelepone" Placeholder="Telephone" FontSize="Large" Keyboard="Numeric"/>
+            <Entry x:Name="TxtEmail" Placeholder="Email" FontSize="Large" Keyboard="Email"/>
+            <Entry x:Name="TxtPassword" Placeholder="Password" FontSize="Large" IsPassword="True"/>
+            <Entry x:Name="TxtPay1" Placeholder="Pay Method" FontSize="Large"/>
+            <Entry x:Name="TxtNumPay1" Placeholder="Number" FontSize="Large"/>
+            <Entry x:Name="TxtPay2" Placeholder="Pay Method" FontSize="Large"/>
+            <Entry x:Name="TxtNumPay2" Placeholder="Number" FontSize="Large"/>
+            <Entry x:Name="TxtPay3" Placeholder="Pay Method" FontSize="Large"/>
+            <Entry x:Name="TxtNumPay3" Placeholder="Number" FontSize="Large"/>
+
+            <StackLayout>
+                <Button x:Name="BtnAdd" Text="Sign Up" CornerRadius="30" Clicked="BtnAdd_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

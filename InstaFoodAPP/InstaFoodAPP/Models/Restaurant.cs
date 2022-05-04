@@ -1,11 +1,21 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace InstaFoodAPP.Models
 {
-    public partial class Restaurant
+    public class Restaurant
     {
+
+        public RestRequest request { get; set; }
+
+        const string mimetype = "application/json";
+        const string contentype = "Content-Type";
+
         public Restaurant()
         {
             Products = new HashSet<Product>();
@@ -37,5 +47,73 @@ namespace InstaFoodAPP.Models
         public virtual Province IdProvNavigation { get; set; }
         public virtual Town IdTownNavigation { get; set; }
         public virtual ICollection<Product> Products { get; set; }
+
+        public async Task<bool> AddNewRest()
+        {
+            bool R = false;
+
+            try
+            {
+                string FinalApiRoute = CnnToAPI.ProductiorRoute + "restaurants";
+                RestClient client = new RestClient(FinalApiRoute);
+                request = new RestRequest(FinalApiRoute, Method.Post);
+
+                request.AddHeader(CnnToAPI.ApiKeyName, CnnToAPI.ApiKeyValue);
+                request.AddHeader(contentype, mimetype);
+
+                string SerializedClass = JsonConvert.SerializeObject(this);
+                request.AddBody(SerializedClass, mimetype);
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                HttpStatusCode statusCode = response.StatusCode;
+
+                if (statusCode == HttpStatusCode.Created)
+                {
+                    R = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                throw;
+            }
+            return R;
+        }
+
+        public async Task<bool> ValidateRestAccess()
+        {
+            bool R = false;
+
+            try
+            {
+                string routeSufix = string.Format("Restaurants/ValidateRestLogin?pEmail={0}&pPassword={1}",
+                    this.Email, this.Password);
+                string FinalApiRoute = CnnToAPI.ProductiorRoute + routeSufix;
+
+                RestClient client = new RestClient(FinalApiRoute);
+
+                request = new RestRequest(FinalApiRoute, Method.Get);
+
+                request.AddHeader(CnnToAPI.ApiKeyName, CnnToAPI.ApiKeyValue);
+                request.AddHeader(contentype, mimetype);
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                HttpStatusCode statusCode = response.StatusCode;
+
+                if (statusCode == HttpStatusCode.OK)
+                {
+                    R = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                string msg = ex.Message;
+                throw;
+            }
+            return R;
+        }
+
     }
 }
