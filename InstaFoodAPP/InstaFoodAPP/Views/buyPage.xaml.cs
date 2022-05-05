@@ -11,37 +11,28 @@ using Xamarin.Forms.Xaml;
 namespace InstaFoodAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SeeProductsListPage : ContentPage
+    public partial class buyPage : ContentPage
     {
 
-        //RestaurantViewModel Rvm;
-
         ProductViewModel Pvm;
-
-        public SeeProductsListPage()
+        public buyPage()
         {
             InitializeComponent();
 
             BindingContext = Pvm = new ProductViewModel();
 
-            LoadList();
-           // LoadListRestaurants();
+            LoadListRestaurants();
 
         }
 
 
-          
-
-        private async void LoadList()
+        private async void LoadListRestaurants()
         {
 
-            LstProductsList.ItemsSource = await Pvm.GetQList();
+            CboProduct.ItemsSource = await Pvm.GetProducts();
 
         }
 
-        private async void BtnAdd_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new buyPage());
-        }
+
     }
 }

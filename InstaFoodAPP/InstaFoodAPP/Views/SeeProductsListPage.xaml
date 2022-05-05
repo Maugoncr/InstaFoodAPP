@@ -30,7 +30,7 @@
                             RowHeight="100"
                                 Margin="10,0,10,0"
                                 VerticalOptions="Center">
-               
+
                     <ListView.ItemTemplate>
 
 
@@ -38,37 +38,48 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
-                                    
+
                                     <Image Grid.Row="0" Grid.Column="0" Source="{Binding ImgUrl}" HorizontalOptions="Start"
                                            WidthRequest="150" Margin="0,0,0,0"/>
                                     <Label Text="{Binding Name}" TextColor="Black"
                                     Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" HorizontalTextAlignment="Start" FontAttributes="Italic,Bold"
                                            FontSize="18" Padding="0,0,0,0"/>
-                                        
+
                                     <Label Grid.Row="0" Grid.Column="1"
                                     Text="{Binding Price}" TextColor="Black"
                                             Margin="0,20,0,0"
                                     HorizontalTextAlignment="Start" HeightRequest="0" TextDecorations="None" FontAttributes="Italic"/>
-                                        
+
                                     <Label Grid.Row="0" Grid.Column="1" 
                                     Text="{Binding Detail}" TextColor="Black"
                                     Margin="0,40,0,0" HeightRequest="0" FontAttributes="Italic"/>
-                                   
+
                                 </Grid >
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-            </ListView>
+                </ListView>
             </ScrollView>
+
+            <StackLayout>
+
+                <Button x:Name="BtnAdd" Text="Buy" BackgroundColor="#16F516" 
+                    WidthRequest="175" Padding="10,0,10,0" FontAttributes="Bold" FontSize="Medium" Clicked="BtnAdd_Clicked"
+                        Margin="20,0,20,50"/>
+                <!--Clicked="BtnAdd_Clicked"-->
                 
-                
-                
+            </StackLayout>
+
+
+
+
+
         </StackLayout>
-            
-            
+
         
-        
-        
-        
+
+
+
+
     </ContentPage.Content>
 </ContentPage>

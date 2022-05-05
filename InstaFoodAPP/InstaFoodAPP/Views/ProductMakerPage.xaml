@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="InstaFoodAPP.Views.ProductMakerPage"
+             BackgroundImageSource="bg.jpg"
+             >
+    <ContentPage.Content>
+        <StackLayout Padding="10,-10,10,0" VerticalOptions="Center">
+
+            <FlexLayout HorizontalOptions="Center" Padding="100,0,0,10">
+
+                <Image Source="chef.png" HorizontalOptions="Center" IsVisible="true" HeightRequest="170" WidthRequest="170"
+                       />
+            </FlexLayout>
+
+            <Label Text="Offer for sale"
+            FontSize="30"
+                   TextColor="Black"
+                   FontAttributes="Bold,Italic"
+                   TextDecorations="Underline"
+                  
+            HorizontalOptions="Center"/>
+
+
+            <Entry x:Name="TxtName" Placeholder="Name" FontSize="Large" PlaceholderColor="white"/>
+            <Entry x:Name="TxtPrice" Placeholder="Price" FontSize="Large" PlaceholderColor="white"/>
+            <Entry x:Name="TxtDetail" Placeholder="Detail" FontSize="Large" PlaceholderColor="white"/>
+            <Entry x:Name="TxtImgUrl" Placeholder="Picture" FontSize="Large" PlaceholderColor="white"/>
+
+            <Button x:Name="BtnAdd" Text="Add Product" FontSize="Large" CornerRadius="30"
+            Clicked="BtnAdd_Clicked" Margin="20,0,20,0" BackgroundColor="#38EDA9"/>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

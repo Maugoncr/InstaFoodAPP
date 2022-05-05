@@ -13,7 +13,7 @@ namespace InstaFoodAPP.Models
         public int IdDistrict { get; set; }
         public int IdTown { get; set; }
         public string Adress { get; set; }
-        public DateTime? Date { get; set; }
+        public string Date { get; set; }
         public string Voucher { get; set; }
         public int? Cash { get; set; }
 

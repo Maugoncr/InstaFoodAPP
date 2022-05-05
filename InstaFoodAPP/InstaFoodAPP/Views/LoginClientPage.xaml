@@ -9,6 +9,12 @@
 
         <StackLayout Padding="50,0,50,0" VerticalOptions="Center">
 
+            <FlexLayout HorizontalOptions="Center" Padding="60,0,0,10">
+
+                <Image Source="usuario.png" HorizontalOptions="Center" IsVisible="true" HeightRequest="170" WidthRequest="170"
+                       />
+            </FlexLayout>
+
 
             <Entry x:Name="TxtUserName" Placeholder="Email" TextTransform="Lowercase" FontSize="Large" TextColor="White" Keyboard="Email" PlaceholderColor="White"/>
 

@@ -99,15 +99,72 @@ namespace InstaFoodAPP.Models
 
                 throw;
             }
-
-
-
-
-
         }
 
 
+        public async Task<bool> ValidateRestAccess()
+        {
+            bool R = false;
 
+            try
+            {
+                string routeSufix = string.Format("Restaurants/ValidateRestLogin?pEmail={0}&pPassword={1}",
+                this.Email, this.Password);
+                string FinalApiRoute = CnnToAPI.ProductiorRoute + routeSufix;
+                RestClient client = new RestClient(FinalApiRoute);
+                request = new RestRequest(FinalApiRoute, Method.Get);
+                request.AddHeader(CnnToAPI.ApiKeyName, CnnToAPI.ApiKeyValue);
+                request.AddHeader(contentType, mimetype);
+                RestResponse response = await client.ExecuteAsync(request);
+                HttpStatusCode statusCode = response.StatusCode;
+                if (statusCode == HttpStatusCode.OK)
+                {
+                    R = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                throw;
+            }
+            return R;
+        }
+
+
+        public async Task<bool> AddNewRest()
+        {
+
+            bool R = false;
+
+            try
+            {
+                //poner la ruta del controller
+                string FinalApiRoute = CnnToAPI.ProductiorRoute + "Restaurants/PostRestEncriptado";  // puede que falte el /
+                RestClient client = new RestClient(FinalApiRoute);
+                request = new RestRequest(FinalApiRoute, Method.Post);
+                //agregar la info de seguridad, en este caso api key
+                request.AddHeader(CnnToAPI.ApiKeyName, CnnToAPI.ApiKeyValue);
+                request.AddHeader(contentType, mimetype);
+                //serializar esta clase para pasarla en el body
+                string SerializedClass = JsonConvert.SerializeObject(this);
+                request.AddBody(SerializedClass, mimetype);
+                //esto envia la consulta al api y recibe una respuesta que debemos leer
+                RestResponse response = await client.ExecuteAsync(request);
+                HttpStatusCode statusCode = response.StatusCode;
+                if (statusCode == HttpStatusCode.Created)
+                {
+                    R = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+
+                throw;
+            }
+
+            return R;
+        }
 
 
 

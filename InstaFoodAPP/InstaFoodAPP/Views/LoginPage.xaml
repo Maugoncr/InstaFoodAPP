@@ -7,7 +7,7 @@
              x:Class="InstaFoodAPP.Views.LoginPage"
              Shell.NavBarIsVisible="False"
              NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="app.jpg"
+             BackgroundImageSource="menu.jpg"
              >
     
     <ContentPage.Content>
@@ -20,7 +20,7 @@
 
 
         <Button x:Name="BtnRestaurante" VerticalOptions="Center" Text="Restaurant" FontSize="Medium" CornerRadius="30" TextColor="White"
-                    BackgroundColor="LimeGreen" BorderColor="White" BorderWidth="0.8" Clicked="BtnRestaurante_Clicked" Margin="25,0,25,0"/>
+                    BackgroundColor="#F39C08" BorderColor="White" BorderWidth="0.8" Clicked="BtnRestaurante_Clicked" Margin="25,0,25,0"/>
 
 
         <Button x:Name="BtnCliente" VerticalOptions="Center" Text="Client" FontSize="Medium" CornerRadius="30" BackgroundColor="#1577F8" 

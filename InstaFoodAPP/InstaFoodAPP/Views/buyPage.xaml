@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InstaFoodAPP.Views.buyPage"
+             BackgroundImageSource="bg.jpg">
+    <ContentPage.Content>
+
+
+        <StackLayout VerticalOptions="Center">
+
+            <FlexLayout HorizontalOptions="Center" Padding="110,0,0,10">
+
+                <Image Source="Food.png" HorizontalOptions="Center" IsVisible="true" HeightRequest="170" WidthRequest="170"
+                       />
+            </FlexLayout>
+            
+            
+            <Label
+                    Text="What do you want?"
+                    FontSize="26"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    />
+
+            <Picker x:Name="CboProduct" Title="Select your Product" TitleColor="White"
+                    ItemDisplayBinding="{Binding Name}" TextColor="White" FontSize="22" Margin="20,0,20,20"
+                        HorizontalTextAlignment="Center">
+
+                <!--El coso este espera un List-->
+                <!--<Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+
+                        <x:String>registered...</x:String>
+                        <x:String>unregistered...</x:String>
+
+                    </x:Array>
+
+                </Picker.ItemsSource>-->
+
+            </Picker>
+
+            <Button x:Name="BtnAdd" Text="Buy" BackgroundColor="#16F516" 
+                    WidthRequest="175" Padding="10,0,10,0" FontAttributes="Bold" FontSize="Medium"
+                        Margin="20,0,20,50"/>
+            <!--Clicked="BtnAdd_Clicked"-->
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

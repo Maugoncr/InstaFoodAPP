@@ -58,17 +58,97 @@ namespace InstaFoodAPP.ViewModels
 
                 }
             }
+        }
+
+
+        public async Task<bool> AddProduct(string pName,
+                                        int pPrice,
+                                        string pDetail,
+                                        string pImgUrl)
+        {
+
+            if (IsBusy) return false;
+
+            IsBusy = true;
+            try
+            {
+
+                DateTime dateTime = DateTime.Now;
 
 
 
+                string fecha = String.Format("{0:d}", DateTime.Now);
+
+                myP.Name = pName;
+                myP.IdRest = 4;
+                myP.Price = pPrice;
+                myP.Detail = pDetail;
+                myP.Status = true;
+                myP.Express = true;
+                myP.Published = fecha;
+                myP.ImgUrl = pImgUrl;
+
+
+
+                bool R = await myP.AddNewProduct();
+
+
+
+                return R;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+
+        public async Task<List<Product>> GetProducts()
+        {
+
+
+            if (IsBusy)
+            {
+                return null;
+            }
+            else
+            {
+                IsBusy = true;
+
+                try
+                {
+                    List<Product> list = new List<Product>();
+
+                    list = await myP.GetNamesList();
+
+                    if (list == null)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return list;
+                    }
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+            }
         }
 
 
 
 
     }
-
-
-
 
 }
